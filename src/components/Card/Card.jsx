@@ -2,20 +2,28 @@
 //Object deconstruction
 import { useState } from 'react';
 
-function Card (){
-    const [myName, setMyName] = useState();
-
+function Card ({ globalName }){
+    const [myName, setMyName] = useState('What in tarnation');
+    const [count, setCount] = useState(0);
+    
     function clickChangeName(){
-        console.log('Test');
-        setMyName('Reili');
-    }
+        console.log('TEST');
+        setMyName('Max is my dog');
+    };
+
+    function clickCount(){
+        setCount(count + 1);
+    };
+
+
     return(
         <div className="card">
-        <button>count is 0</button>
-        <p>{myNamed}</p>
-        <button onclick={clickChangeName}>Change Name</button>
+            {/* Create state to increment counter */}
+        <button onClick={clickCount}>count is {count}</button>
+        <p>{globalName ? globalName : myName}</p>
+        <button onClick={clickChangeName}>Change Name</button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR.
+          Edit <code>src/App.jsx</code> and save to test HMR. <br />
 
           I could really use a taco right now.
         </p>
